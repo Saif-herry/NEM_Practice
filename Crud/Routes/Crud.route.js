@@ -14,9 +14,16 @@ CrudRouter.get("/",async(req,res)=>{
    }
 })
 
-// CrudRouter.post("/post",(req,res)=>{
-//     const user = CrudModel.create(req.body)
-//     res.send({message:"user details saved"})
-// })
+CrudRouter.post("/post",async(req,res)=>{
+    const {name,age,city} = req.body;
+    try{
+        const user =await CrudModel.create({name,age,city})
+        user.save();
+        res.status(200).send(user);
+    }
+    catch(err){
+        res.status(500).send({message:err.message});
+    }
+})
 
 module.exports = CrudRouter
