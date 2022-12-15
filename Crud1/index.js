@@ -7,10 +7,13 @@ app.use(express.json())
 app.use(cors())
 
 const connection = require('./config')
+const CrudRouter = require('./routes/Crud.Routes')
 
 app.get('/',(req,res)=>{
     res.send('Welcome from Crud Operation World')
 })
+
+app.use('/crud',CrudRouter)
 
 const PORT = process.env.PORT || 8080
 
