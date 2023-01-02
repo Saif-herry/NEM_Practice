@@ -1,31 +1,15 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+const express = require('express')
 
-const app = express();
-app.use(express.json())
-app.use(cors())
+const app = express()
 
-const connection = require("./config")
-const CrudRoute = require("./Routes/Crud.route")
-
-app.get("/",(req,res)=>{
-    res.send("Welcome from Crud Operation")
+app.get('/',(req,res)=>{
+    res.send("Home Page")
 })
 
-app.use("/nem",CrudRoute)
+app.get('/about',(req,res)=>{
+    res.send('About Page')
+})
 
-const PORT  = process.env.PORT || 8080;
-
-
-
-app.listen(PORT,async()=>{
-    try{
-         await connection;
-         console.log("db connected");
-    }
-    catch(err){
-         console.log("Check error",err);
-    }
-    console.log(`listening on port ${PORT}`);
+app.listen(8080,()=>{
+    console.log('Listening on port 8080')
 })
