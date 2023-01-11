@@ -5,8 +5,8 @@ const mongoose = require("mongoose");
 
 const CrudSheme = new mongoose.Schema({
     "name":String,
-    "age":Number,
-    "city":String
+    "city":String,
+    "age":Number
 })
 
 const CrudModel = mongoose.model("crud",CrudSheme)

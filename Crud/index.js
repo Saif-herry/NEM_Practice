@@ -1,22 +1,29 @@
 const express = require('express')
+require('dotenv').config()
+const cors = require('cors')
+
 
 const app = express()
-
-app.use((req,res,next)=>{
-    console.log('Hellow middleware')
-    next()
-    console.log('Middleware again')
-})
+app.use(express.json())
+app.use(cors())
 
 app.get('/',(req,res)=>{
-    console.log('welcome in Test')
-    res.send('Welcome in Test')
-})
+    res.send("Welcome in Home Page")
+}) 
 
-app.get('/dashboard',(req,res,next)=>{
-    res.send('Welcome in dashboard!')
-})
+const connection = require('./config')
+const CrudRouter = require('./Routes/Crud.route')
+app.use('/Assos',CrudRouter)
 
-app.listen(8080,()=>{
-    console.log('listening on the port 8008')
+const PORT = process.env.PORT || 8080
+
+app.listen(PORT,async()=>{
+    try{
+       await connection
+       console.log('db connected')
+    }
+    catch(err){
+        console.log('check config',err)
+    }
+    console.log(`listening on the port ${PORT}`)
 })
