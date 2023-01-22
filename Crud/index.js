@@ -13,7 +13,7 @@ app.get('/',(req,res)=>{
 
 const connection = require('./config')
 const CrudRouter = require('./Routes/Crud.route')
-app.use('/Assos',CrudRouter)
+app.use('/assos',CrudRouter)
 
 const PORT = process.env.PORT || 8080
 
