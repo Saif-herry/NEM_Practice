@@ -2,18 +2,19 @@ const express = require('express')
 
 const app = express()
 
-app.get('/get',(req,res)=>{
-    res.send("Welcome in homepage")
+app.get('/get', (req, res) => {
+  res.send('Welcome in homepage')
+})
+
+app.listen(8080, () => {
+  console.log('db connected')
 })
 
 
-app.listen(8080,()=>{
-    console.log('db connected')
-})
+
 // const express = require('express')
 // const cors = require('cors')
 // require('dotenv').config()
-
 
 // const app = express()
 // app.use(express.json())
@@ -24,7 +25,6 @@ app.listen(8080,()=>{
 
 // const CrudRouter = require('./Routes/Crud.routes')
 // app.use('/crud',CrudRouter)
-
 
 // app.get('/',(req,res)=>{
 //     res.send('Welcome in crud')
