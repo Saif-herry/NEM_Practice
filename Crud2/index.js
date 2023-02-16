@@ -7,7 +7,7 @@ app.get('/get', (req, res) => {
 })
 
 app.listen(8080, () => {
-  console.log('db connected')
+  console.log('db connected Successfully')
 })
 
 
