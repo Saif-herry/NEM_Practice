@@ -6,8 +6,12 @@ app.get('/get', (req, res) => {
   res.send('Welcome in homepage')
 })
 
+app.get('/',(req,res)=>{
+  res.send('Welcome guys!')
+})
+
 app.listen(8080, () => {
-  console.log('db connected Successfully')
+  console.log('db connected')
 })
 
 
