@@ -2,9 +2,7 @@ const express = require('express')
 
 const app = express()
 
-app.get('/get', (req, res) => {
-  res.send('Welcome in homepage')
-})
+
 
 app.get('/',(req,res)=>{
   res.send('Welcome guys!')
