@@ -25,4 +25,14 @@ res.status(500).send({message:err.message})
   }
 })
 
+CrudRouter.delete("/delete/id",async(req,res)=>{
+  try{
+    const user = crudModel.findByIdAndDelete({_id:req.params.id})
+    res.status(200).send(user)
+  }
+  catch(err){
+    res.status(500).send({message:err.message})
+  }
+})
+
 module.exports = CrudRouter
